@@ -1,0 +1,69 @@
+<div class="container">
+    <h2 class="section-title">Demand Details</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="demand-details-card">
+                <div class="card-header">
+                    <h3 class="card-title">General Information</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">Demand ID:</label>
+                        <p class="form-text">{{ demandeDetails.id }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date of Submission:</label>
+                        <p class="form-text">{{ demandeDetails.envoyeLe }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Type of Demand:</label>
+                        <p class="form-text">{{ demandeDetails.typeDemande }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status:</label>
+                        <p class="form-text">{{ demandeDetails.status }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="demand-details-card">
+                <div class="card-header">
+                    <h3 class="card-title">User &amp; Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">User:</label>
+                        <p class="form-text">{{ demandeDetails.user.userName }}</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Documents:</label>
+                        <ul class="document-list">
+                            <ng-container *ngFor="let document of demandeDetails.documents">
+                                <li *ngIf="document.filePath">{{ document.nom_Document }} <button class="btn btn-success btn-sm" (click)="downloadFile(document.nom_Document)">
+                                    <i class="fas fa-download"></i> 
+                                  </button></li>
+                                
+                            </ng-container>
+                        </ul>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label class="form-label">Equipment:</label>
+                        <ul class="equipment-list">
+                            <li *ngFor="let equipement of demandeDetails.equipement">
+                                {{ equipement.modele }} - {{ equipement.marque }} Quantity: {{ equipement.quantite }}
+                            </li>
+
+                            <li *ngFor="let equipement of demandeDetails.equipement">
+                              Quantity: {{ equipement.quantite }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="container mt-5 mb-5">
+    <div class="row m-3">
+        <div class="col-md-5 text-center profile-section">
+            <div class="col">
+                <div class="profile-image-wrapper">
+                    
+                    <img [src]="currentUser.profileImage" alt="Profile" class="rounded-circle profile-image mb-3 "  width="150px" height="150px">
+                </div>
+            </div>
+            <div>
+                <h2 class="profile-name">{{ currentUser.userFirstName }} {{ currentUser.userLastName }}</h2>
+                <p class="profile-address">{{ currentUser.adresse }}</p>
+            </div>
+            <div class="col profile-buttons">
+                <button mat-raised-button color="primary" class="update-profile-btn" (click)="UpdateProfile()">Update Profile <i class="fa-solid fa-user-pen"></i></button>
+                <button mat-raised-button color="primary" class="change-password-btn" (click)="ModifierMotDePasse()" >Change Password <i class="fa-solid fa-lock"></i></button>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <table class="table profile-info-table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Username</th>
+                        <td>{{ currentUser.userName }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Full Name</th>
+                        <td>{{ currentUser.userFirstName }} {{ currentUser.userLastName }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Address</th>
+                        <td>{{ currentUser.adresse }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td>{{ currentUser.email }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">TelFixe</th>
+                        <td>{{ currentUser.telFixe }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">TelMobile</th>
+                        <td>{{ currentUser.telMobile }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

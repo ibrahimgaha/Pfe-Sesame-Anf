@@ -1,0 +1,118 @@
+.card-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .progress-bar-green .mat-progress-bar-fill::after {
+    background-color: green; /* Change the color to your desired color */
+  }
+  .file-list {
+    /* Adjust spacing between files */
+    gap: 1rem;
+  }
+  
+  .file-card {
+    width: 18rem; /* Set a fixed width for file cards */
+    /* Adjust padding and margin for content spacing */
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .file-card .card-body {
+    /* Adjust font size and line height for better readability */
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  .file-card .card-text {
+    /* Truncate long filenames with ellipsis */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .file-card .btn-primary {
+    /* Adjust button position and margin */
+    margin-left: auto;
+  }  
+
+  .add-complements-button {
+    background-color: #4547d0; /* Set background color */
+    color: white; /* Set text color */
+    font-weight: bold; /* Make text bold */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Add border radius */
+    transition: background-color 0.5s ease; /* Add transition effect */
+}
+
+.add-complements-button:hover {
+    background-color: #e94040; /* Change background color on hover */
+}
+
+
+
+
+.container.mt-5 {
+  /* Animate container entrance (optional) */
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filter-field {
+  width: 100%; /* Adjust width as needed */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  background-color: #f8f9fa; /* Light gray background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box-shadow for depth */
+  transition: box-shadow 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.filter-field:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced hover shadow */
+}
+
+.filter-label {
+  color: #333; /* Darker text for clarity */
+  font-weight: 500; /* Slightly bolder for emphasis */
+  margin-bottom: 5px; /* Add space between label and input */
+}
+
+.filter-input,
+.filter-select {
+  border: 1px solid #ddd; /* Light border for definition */
+  border-radius: 4px; /* Rounded corners for a modern touch */
+  padding: 12px 18px; /* Increase padding for a more spacious feel */
+  font-size: 16px; /* Clear and readable font size */
+  outline: none; /* Prevent harsh outlines */
+  transition: border-color 0.2s ease-in-out; /* Smooth border highlight on focus */
+}
+
+.filter-input,
+.filter-select:focus {
+  border-color: #28a745; /* Green border highlight on focus */
+}
+
+.filter-button {
+  border: none;
+  padding: 12px 24px; /* Increase padding for a more prominent button */
+  border-radius: 8px; /* Rounded corners to match other elements */
+  background-color: #28a745; /* Green color for vibrancy */
+  color: #fff; /* White text */
+  font-size: 16px; /* Consistent font size */
+  cursor: pointer; /* Indicate interactivity */
+  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.filter-button:hover {
+  background-color: #218c3d; /* Darker green on hover */
+}
+

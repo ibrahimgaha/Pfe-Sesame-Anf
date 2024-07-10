@@ -1,0 +1,35 @@
+/* Custom styling for the accordion menu */
+
+/* Accordion button */
+.accordion-button {
+  padding: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Accordion button hover */
+.accordion-button:hover {
+  background-color: #e60404;
+  color: #333;
+}
+
+/* Accordion body */
+.accordion-body {
+  padding: 1rem;
+}
+
+/* Card within accordion body */
+
+
+/* List group within card */
+.list-group-item {
+  padding: 0.5rem 1rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* List group item hover */
+.list-group-item:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}

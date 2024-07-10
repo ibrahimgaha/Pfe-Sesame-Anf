@@ -1,0 +1,80 @@
+/* Profile section */
+.profile-section {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-section:hover {
+    transform: translateY(-5px);
+}
+
+/* Profile image */
+.profile-section .profile-image {
+    border: 5px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-section .profile-image:hover {
+    transform: scale(1.1);
+}
+
+/* Profile name */
+.profile-section .profile-name {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Profile address */
+.profile-section .profile-address {
+    color: #777;
+    font-size: 18px;
+}
+
+/* Profile buttons */
+.profile-section .profile-buttons button {
+    margin-right: 20px;
+    border-radius: 30px;
+    padding: 10px 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-section .profile-buttons button:hover {
+    transform: translateY(-3px);
+}
+
+/* Profile info table */
+.profile-info-table {
+    background-color: #ffffff;
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-info-table th,
+.profile-info-table td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.profile-info-table th {
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+.profile-info-table td {
+    color: #555555;
+}
+
+.profile-info-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.profile-info-table tbody tr:hover {
+    background-color: #f0f0f0;
+}

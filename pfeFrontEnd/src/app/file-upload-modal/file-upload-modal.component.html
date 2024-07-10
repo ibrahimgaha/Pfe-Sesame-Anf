@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>
+  <span mat-dialog-title>Upload Files</span>
+  <mat-icon *ngIf="selectedFiles.length > 0">attach_file</mat-icon>
+</h2>
+<div mat-dialog-content class="upload-container" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+  <div class="upload-zone">
+    <p>
+      <span class="drag-text">Drag and drop files here<br>or</span>
+      <label for="file-input">
+        Click to Select Files
+      </label>
+    </p>
+    <ul class="selected-files" *ngIf="selectedFiles.length > 0">
+      <li *ngFor="let file of selectedFiles; let i = index">
+        {{ file.name }}
+        <button mat-icon-button color="warn" (click)="removeFile(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <input type="file" id="file-input" (change)="onFileSelected($event)" multiple style="display: none;" />
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="uploadFiles()" [disabled]="!selectedFiles.length">Upload</button>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+</div>

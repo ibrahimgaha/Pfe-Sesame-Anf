@@ -1,0 +1,60 @@
+<div class="container mt-5 mb-5">
+  <div class="card p-4 shadow-lg">
+    <div class="row">
+      <div class="col-md-6">
+        <form #avisForm="ngForm" (ngSubmit)="submitFormAvis(avisForm)" class="avis-form">
+          <div class="form-group">
+            <label for="nomEquipement">Equipment Name:</label>
+            <input type="text" [(ngModel)]="avis.nomEquipement" name="nomEquipement" id="nomEquipement" class="form-control" placeholder="Enter equipment name" required>
+            <small class="form-text text-danger">* Required</small>
+          </div>
+
+          <div class="form-group">
+            <label for="question">Question:</label>
+            <textarea [(ngModel)]="avis.question" name="question" id="question" class="form-control" rows="4" placeholder="Enter your question" required></textarea>
+            <small class="form-text text-danger">* Required</small>
+          </div>
+
+          <div class="form-group">
+            <label>Technical Advice:</label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [(ngModel)]="avis.selectedAvisTechnique" value="personnel" name="selectedAvisTechnique" id="radioPersonal" required>
+              <label class="form-check-label" for="radioPersonal">Personal Use</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [(ngModel)]="avis.selectedAvisTechnique" value="commercial" name="selectedAvisTechnique" id="radioCommercial" required>
+              <label class="form-check-label" for="radioCommercial">Commercial Use</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [(ngModel)]="avis.selectedAvisTechnique" value="telecommunication" name="selectedAvisTechnique" id="radioTelecommunication" required>
+              <label class="form-check-label" for="radioTelecommunication">Telecommunications</label>
+            </div>
+            <small class="form-text text-danger">* Required</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <div id="dragDropArea" class="mt-3 drag-drop-area">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" multiple id="selectFile" #selectFile (change)="onFileSelected($event)" required>
+            <label class="custom-file-label" for="selectFile" style="cursor: pointer;">Choose file(s)</label>
+            <small class="form-text text-danger">* Required</small>
+          </div>
+          <!-- Display selected file names -->
+          <div class="selected-files mt-3">
+            <ul *ngIf="avis.avisDocument.length > 0" class="selected-files-list">
+              <p>Your Documents:</p>
+              <li *ngFor="let file of avis.avisDocument; let i = index" class="selected-file-item">
+                <span class="file-name">{{ file.file.name }}</span>
+                <button type="button" class="btn btn-sm btn-danger ml-2" (click)="removeFile(i)">X</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

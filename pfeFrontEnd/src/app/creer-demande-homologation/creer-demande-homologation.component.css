@@ -1,0 +1,132 @@
+/* Container */
+.container {
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Optional background color */
+}
+
+/* Form layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-lg-6,
+.col-lg-12 {
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-lg-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+/* File upload */
+.file-upload-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Space file uploads evenly */
+}
+
+.custom-file-upload {
+  border: 2px dashed #007bff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  margin-bottom: 15px; /* Add bottom margin */
+}
+
+.custom-file-upload:hover {
+  background-color: #c0e2ef;
+  animation: animateBackground 0.3s ease-in-out;
+}
+
+@keyframes animateBackground {
+  from {
+    background-color: #fff; /* Or your default background color */
+  }
+  to {
+    background-color: #c0e2ef;
+  }
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload span {
+  font-size: 18px;
+  color: #007bff;
+}
+
+
+
+.custom-file-upload i img {
+  width: 30px;
+  height: 30px;
+}
+
+.custom-file-upload input[type="file"]:hover {
+  opacity: 0.7; /* Slightly reduce opacity on hover for better visual feedback */
+}
+
+.custom-file-upload input[type="file"]:focus + .filename,
+.custom-file-upload input[type="file"]:active + .filename {
+  display: block; /* Show filename when input is focused or active */
+}
+
+
+
+/* Error messages */
+.form-text.text-danger {
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+/* Submit button */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+

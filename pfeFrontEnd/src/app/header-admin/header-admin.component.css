@@ -1,0 +1,46 @@
+/* Custom CSS */
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 30px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-btn {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  
+  .search-bar input[type="text"] {
+    border: none;
+    border-radius: 30px;
+  }
+  
+  .search-bar input[type="text"]:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .search-btn i {
+    color: white;
+  }
+  
+  .greeting span {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-pic:hover {
+    transform: scale(1.2); /* Increase the scale to make it bigger */
+  }
+  

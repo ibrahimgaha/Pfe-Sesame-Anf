@@ -1,0 +1,79 @@
+<div class="container">
+    <button class="btn btn-primary" (click)="exportToExcel()">
+        <i class="fa-solid fa-file-excel"></i> Export to Excel
+    </button>
+
+    <mat-form-field appearance="outline" style="width: 50%; margin-left: 50px;">
+        <mat-label>Search Any Technical Advice Here</mat-label>
+        <input matInput #searchKeyWord (keyup)="searchByKeyWord(searchKeyWord.value)"
+            placeholder="Search Any Technical Advice Here" name="searchKey" id="searchKey">
+        <mat-hint>Search by the <b>Equipment name</b>, <b>Question type</b>, or even the <b>question</b> </mat-hint>
+    </mat-form-field>
+
+  <!-- Filter by AvisTechnique Status -->
+<mat-form-field appearance="outline" style="width: 30%;">
+    <mat-label>Filter by Technical Advice Status:</mat-label>
+    <mat-select [(value)]="selectedStatus" (selectionChange)="applyFilter()">
+      <mat-option value="">All</mat-option>
+      <mat-option value="Repondu">Repondu</mat-option>
+      <mat-option value="Pas_Repondu">Pas Repondu</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+
+
+<!-- Date Filter -->
+<mat-form-field appearance="outline" class="ml-3">
+    <mat-label>Select Date</mat-label>
+    <input matInput [matDatepicker]="datePicker" placeholder="Choose a date" [(ngModel)]="selectedDate">
+    <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+    <mat-datepicker #datePicker></mat-datepicker>
+  </mat-form-field>
+  
+  <button mat-raised-button (click)="applyDateFilter()">Apply Date Filter</button>
+  
+
+    <table class="table ">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Equipment name</th>
+                <th>Question type</th>
+                <th>Question</th>
+                <th>User</th>
+                <th>Date the question was sent</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let avisTechnique of filteredAvisTechniques; let i = index" [class.highlight]="i % 2 === 0">
+                <td>{{ i + 1 }}</td>
+                <td>{{ avisTechnique.nomEquipement | slice:0:50}}</td>
+                <td>{{ avisTechnique.selectedAvisTechnique | slice:0:50}}</td>
+                <td>{{ avisTechnique.question | slice:0:50}}</td>
+                <td>{{ avisTechnique.user.userName | slice:0:50}}</td>
+                <td>{{ avisTechnique.envoye_Le | slice:0:50}}</td>
+                <td class="status-cell">
+                    <span class="circle-indicator"
+                        [ngClass]="{'green-circle': avisTechnique.status === 'Repondu', 'red-circle': avisTechnique.status === 'Pas_Repondu'}"></span>
+                    <span>{{ avisTechnique.status | slice:0:50}}</span>
+                </td>
+                <td>
+                    <button class="btn btn-primary comment-btn"
+                        (click)="redirectToResponse(avisTechnique.id)"><i class="fas fa-comment"></i></button>
+                    <button class="btn btn-danger delete-btn"
+                        (click)="deleteAvisTechnique(avisTechnique.id)"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    
+    <div *ngIf="showLoadButton">
+        <button type="button" mat-fab color="warn" (click)="loadMoreAvis()"><i class="fa-solid fa-arrow-down"></i>
+            More</button>
+    </div>
+</div>

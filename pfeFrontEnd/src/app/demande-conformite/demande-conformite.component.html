@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row justify-content-between align-items-center mt-4">
+        <div class="col-md-8">
+            <h2 class="mb-0" style="font-family: 'Montserrat'; font-weight: 600;">List of requests for Compliance</h2>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <input type="text" class="form-control" placeholder="Search...">
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="exportToExcel()">
+        <i class="fa-solid fa-file-excel"></i> Export to Excel
+    </button>
+    <div class="row mt-4">
+        <div class="col">
+            <!-- Loop through each demand and display it in a detail component -->
+            <ng-container *ngFor="let demand of conformiteDemands">
+                <div class="card mb-4 rounded-3 shadow custom-border" *ngIf="demand.typeDemande ==='Conformité'">
+                    <div class="card-header">
+                        <div class="status">
+                            <span class="status-label">Demand Status:</span>
+                            <span class="status-text" [ngClass]="{
+                                'text-primary': demand.status === 'onGoing',
+                                'text-success': demand.status === 'validated',
+                                'text-danger': demand.status === 'notValidated',
+                                'text-info': demand.status === 'complementExpectation'
+                            }">{{ demand.status }}</span>
+                        </div>
+                    </div>
+
+                    
+                    
+                    <div class="card-body">
+                        <!-- Information -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="info-row">
+                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    <div class="fw-bold">Demand ID:</div>
+                                    <div>{{ demand.id }}</div>
+                                </div>
+                                <div class="info-row">
+                                    <i class="fas fa-tools text-primary me-2"></i>
+                                    <div class="fw-bold">Equipment to Request:</div>
+                                    <div *ngFor="let equipement of demand.equipement">{{ equipement.modele }}</div>
+                                </div>
+                                <div class="info-row">
+                                    <i class="far fa-clock text-primary me-2"></i>
+                                    <div class="fw-bold">Date of Submission of Request:</div>
+                                    <div>{{ demand.envoyeLe }}</div>
+                                </div>
+                                <div class="info-row">
+                                    <i class="fas fa-user-tie text-primary me-2"></i>
+                                    <div class="fw-bold">User:</div>
+                                    <div>{{ demand.user.userName }}</div>
+                                </div>
+                            </div>
+                            <!-- Buttons -->
+                            <div class="col-md-6 d-flex justify-content-md-end align-items-md-center button-container">
+                               
+                                <button class="btn btn-primary me-3" (click)="redirectToDetails(demand.id)">
+                                    <i class="far fa-list-alt"></i>
+                                    Details Request
+                                </button>
+                                <button class="btn btn-danger" (click)="deleteDemande(demand.id)">
+                                    <i class="fas fa-trash-alt"></i>
+                                    Delete Request
+                                </button>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle custom-dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-pencil-alt"></i> Change Status
+                                    </button>
+                                    <ul class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" (click)="changeStatus(demand.id, 'validated')"><i class="fas fa-check-circle"></i> Validated</a></li>
+                                        <li><a class="dropdown-item" (click)="changeStatus(demand.id, 'notValidated')"><i class="fas fa-times-circle"></i> Not Validated</a></li>
+                                        <li><a class="dropdown-item" (click)="changeStatus(demand.id, 'complementExpectation')"><i class="fas fa-file-alt"></i> Complement Expectation</a></li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col text-center">
+            Pagination
+        </div>
+    </div>
+</div>

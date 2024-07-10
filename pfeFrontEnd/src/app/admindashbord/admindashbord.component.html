@@ -1,0 +1,34 @@
+<div class="main_container">
+    <div class="row min-height-600 no-flex-wrap">
+      <div class="card col-md-2">
+        <!-- Left menu -->
+        <div class="col">
+          <div>
+            <h4 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-align: center ; font-weight: bold; margin-top: 10px;">Bureau ANF_GU CERT</h4>
+          </div>
+          <div>
+            <app-menu-dashboard></app-menu-dashboard>
+            
+          </div>
+          <button class=" btn btn-link" type="button" (click)="logout()"><i class="fas fa-power-off">LogOut</i></button>
+
+        </div>
+      </div>
+  
+      <div class="card col-md-10 bg-grey border-none pl-0 pr-2" style="padding-left:0 px; padding-right: 0px;">
+        <div class="col d-flex flex-column justify-content-between" style="padding-left:0 px; padding-right: 0px;">
+  
+          <div class="card min-height-80 mb-2">
+            <app-header-admin></app-header-admin>
+          </div>
+  
+          <div class="card mb-2" style="min-height: 480px;">
+            <router-outlet></router-outlet> <!-- This is where the components will be rendered -->
+          </div>
+  
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  

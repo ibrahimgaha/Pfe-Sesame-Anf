@@ -1,0 +1,48 @@
+<div class="details-container">
+  <div class="details-header">
+    <h1>Technical Advice Details</h1>
+  </div>
+
+  <div class="details-content">
+    <!-- First Container -->
+    <div class="details-card col-md-6">
+      <div class="info-item">
+        <h2 class="info-title">Question:</h2>
+        <p class="info-content scrollable-text">{{ avisDetails.question }}</p>
+      </div>
+
+      <div class="info-item">
+        <h2 class="info-title">Equipment:</h2>
+        <p class="info-content">{{ avisDetails.nomEquipement }}</p>
+      </div>
+
+      <div class="info-item">
+        <h2 class="info-title">Question Type:</h2>
+        <p class="info-content">{{ avisDetails.selectedAvisTechnique }}</p>
+      </div>
+    </div>
+
+    <!-- Second Container -->
+    <div class="details-card col-md-6">
+      <div class="info-item">
+        <h2 class="info-title">Response:</h2>
+        <p class="info-content scrollable-text">{{ avisDetails.response }}</p>
+      </div>
+
+      <div class="info-item">
+        <h2 class="info-title">Responded On:</h2>
+        <p class="info-content">{{ avisDetails.repondu_le }}</p>
+      </div>
+
+      <div class="info-item">
+        <h2 class="info-title">Documents:</h2>
+        <ul class="document-list">
+          <li *ngFor="let document of avisDetails.avisDocument">
+            <a href="#">{{ document.nom_Document }}</a>
+            <button class="btn btn-sm btn-danger" (click)="downloadFile(document.nom_Document)"><i class="fa-solid fa-download"></i></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

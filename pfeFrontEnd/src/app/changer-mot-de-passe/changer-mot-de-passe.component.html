@@ -1,0 +1,41 @@
+<div class="container mt-5 mb-5">
+    <div class="row m-3">
+        <div class="col-md-5 text-center profile-section">
+            <div class="profile-image-wrapper">
+                <img [src]="currentUser.profileImage" alt="Profile" class="rounded-circle profile-image mb-3 "  width="150px" height="150px">
+            </div>
+            <div class="profile-details">
+                <h2 class="profile-name">{{ currentUser.userFirstName }} {{ currentUser.userLastName }}</h2>
+                <p class="profile-address">{{ currentUser.adresse }}</p>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="currentPassword" class="form-label">Your current Password</label>
+                    <input type="password" class="form-control" id="currentPassword" [(ngModel)]="currentPassword">
+                </div>
+                <div class="form-group">
+                    <label for="newPassword" class="form-label">Your New Password</label>
+                    <input type="password" class="form-control" id="newPassword" [(ngModel)]="newPassword">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword" class="form-label">Your Confirmation of the Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword">
+                </div>
+
+
+                <div class="row mt-3">
+
+                    <div class="col-md-12" style="text-align: right;">
+                        <button mat-raised-button  class="save-btn" (click)="changePassword()">Save</button>
+                        <button mat-raised-button  class="clear-btn" type="reset" >Clear</button>
+                
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,208 @@
+<div class="container m-5">
+    <h2 class="mb-4 text-center">Withdrawal of compliance</h2>
+  <form #demandeRetConfForm="ngForm" (ngSubmit)="SubmitDemandeRetraitConformite(demandeRetConfForm)">
+    <div class="row">
+        <!-- Left Side for Form -->
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Equipment Model:</label>
+                <input type="text" class="form-control"[(ngModel)]="equipment.modele" name="modele" required>
+                <small class="form-text text-danger">Required</small>
+            </div>
+  
+            <div class="form-group">
+                <label>Equipment Mark:</label>
+                <input type="text" class="form-control" [(ngModel)]="equipment.marque" name="marque" required>
+                <small class="form-text text-danger">Required</small>
+            </div>
+  
+            <div class="form-group">
+                <label>Equipment Quantity:</label>
+                <input type="text" class="form-control" [(ngModel)]="equipment.quantite" name="quantite" required>
+                <small class="form-text text-danger">Required</small>
+            </div>
+
+
+            <div class="form-group">
+                <label>Equipment Type:</label>
+                <input type="text" class="form-control" [(ngModel)]="equipment.type" name="type" required>
+                <small class="form-text text-danger">Required</small>
+            </div>
+      
+           
+  
+            <!-- Submit Button -->
+            <div class="text-center mt-4 mb-4">
+              <button type="submit" class="btn btn-primary">Submit</button>          
+          </div>
+            <hr>
+            <h3 class="text-danger">*: if necessary <br>**: For a new Client</h3>
+        </div>
+  
+        <!-- Right Side for File Uploads -->
+        <div class="col-lg-6">
+            <div class="file-upload">
+                <!-- Input 1 -->
+                <label for="file-upload-1" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span><span class="text-dark">Choose File</span> (Demand/Form)
+                
+                   
+                </span>
+                    <input type="file" id="file-upload-1" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+  
+                <!-- Input 2 -->
+                <label for="file-upload-2" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span><span class="text-dark">Choose File</span>(Bill)
+                
+                    <span *ngIf="demande.demandeFiles.length > 0">
+                        - Uploaded: 
+                        <span *ngFor="let file of demande.demandeFiles">{{ file.file.name }}</span>
+                    </span>
+                
+                </span>
+                    <input type="file" id="file-upload-2" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+  
+                <!-- Input 3 -->
+                <label for="file-upload-3" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span><span class="text-dark">Choose File</span>(Report on arrival)
+                
+                    <span *ngIf="demande.demandeFiles.length > 0">
+                        - Uploaded: 
+                        <span *ngFor="let file of demande.demandeFiles">{{ file.file.name }}</span>
+                    </span>
+                
+                </span>
+                    <input type="file" id="file-upload-3" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+  
+                <!-- Input 4 -->
+                <label for="file-upload-4" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span><span class="text-dark">Choose File</span>(Foreign trade title)
+                
+                    <span *ngIf="demande.demandeFiles.length > 0">
+                        - Uploaded: 
+                        <span *ngFor="let file of demande.demandeFiles">{{ file.file.name }}</span>
+                    </span>
+                
+                </span>
+                    <input type="file" id="file-upload-4" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+  
+                <!-- Input 5 -->
+                <label for="file-upload-5" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span><span class="text-dark">Choose File</span>(Technical doc (CD) )
+                
+                    <span *ngIf="demande.demandeFiles.length > 0">
+                        - Uploaded: 
+                        <span *ngFor="let file of demande.demandeFiles">{{ file.file.name }}</span>
+                    </span>
+                
+                </span>
+                    <input type="file" id="file-upload-5" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+  
+                <!-- Input 6 -->
+                <label for="file-upload-6" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span> <span class="text-dark">Choose File</span> (Customer file)**
+                
+                
+                    <span *ngIf="demande.demandeFiles.length > 0">
+                        - Uploaded: 
+                        <span *ngFor="let file of demande.demandeFiles">{{ file.file.name }}</span>
+                    </span>
+                </span>
+                    <input type="file" id="file-upload-6" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+  
+                <!-- Input 7 -->
+                <label for="file-upload-7" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span><span class="text-dark">Choose File</span> (Engagement)
+                
+                    <span *ngIf="demande.demandeFiles.length > 0">
+                        - Uploaded: 
+                        <span *ngFor="let file of demande.demandeFiles">{{ file.file.name }}</span>
+                    </span>
+                    
+                </span>
+                    <input type="file" id="file-upload-7" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+  
+                <!-- Input 8 -->
+                <label for="file-upload-8" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span><span class="text-dark">Choose File</span> (Commercial register / Mf)*
+                
+                    <span *ngIf="demande.demandeFiles.length > 0">
+                        - Uploaded: 
+                        <span *ngFor="let file of demande.demandeFiles">{{ file.file.name }}</span>
+                    </span>
+                </span>
+                    <input type="file" id="file-upload-8" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+  
+                <!-- Input 9 -->
+                <label for="file-upload-9" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span><span class="text-dark">Choose File</span> (Certificate of origin)
+                
+                    <span *ngIf="demande.demandeFiles.length > 0">
+                        - Uploaded: 
+                        <span *ngFor="let file of demande.demandeFiles">{{ file.file.name }}</span>
+                    </span>
+                
+                </span>
+                    <input type="file" id="file-upload-9" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+  
+                <!-- Input 10 -->
+                <label for="file-upload-10" class="custom-file-upload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span><span class="text-dark">Choose File</span> (Complementary information)
+                
+                    <span *ngIf="demande.demandeFiles.length > 0">
+                        - Uploaded: 
+                        <span *ngFor="let file of demande.demandeFiles">{{ file.file.name }}</span>
+                    </span>
+                
+                </span>
+                    <input type="file" id="file-upload-10" multiple (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt,.png,.jpg">
+                </label>
+            </div>
+        </div>
+    </div>
+  </form>
+
+
+  <!-- Display file names and "X" buttons in a table -->
+  <div class="row">
+    <div class="col-lg-6 offset-lg-6">
+        <div class="file-upload">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Iterate over demande.demandeFiles and display each file name -->
+                    <tr *ngFor="let file of demande.demandeFiles">
+                        <td>{{ file.file.name }}</td>
+                        <td><button type="button" class="btn btn-sm btn-danger" (click)="removeFile(file)">X</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  </div>
+  

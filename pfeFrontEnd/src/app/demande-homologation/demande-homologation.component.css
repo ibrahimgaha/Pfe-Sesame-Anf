@@ -1,0 +1,158 @@
+.custom-border {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease; /* Adding transition for smoother changes */
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.info-row i {
+    font-size: 20px;
+    margin-right: 15px;
+    color: #007bff; /* Updated color to a lighter blue */
+}
+
+.info-row div {
+    font-size: 18px;
+    color: #555;
+    font-family: "Montserrat", "Helvetica Neue",;
+}
+
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+    max-width: 50%;
+}
+
+.border-right {
+    border-right: 2px solid #ccc; /* Increased border thickness */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centered buttons vertically */
+}
+
+.button-container button:hover {
+    transform: translateY(-3px); /* Add a slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusting box shadow on hover */
+    background-color: #0056b3; /* Change background color on hover */
+}
+
+.button-container button {
+    margin-bottom: 15px;
+    padding: 15px 30px; /* Increased padding for buttons */
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease; /* Adding transition for smoother changes */
+    background-color: #619bda;
+    color: #fff;
+}
+
+.button-container button i {
+    margin-right: 10px;
+}
+.validated-icon {
+    color: green;
+}
+
+.notValidated-icon {
+    color: red;
+}
+
+.complementExpectation-icon {
+    color: rgb(246, 132, 50);
+}
+
+/* dropDown */
+
+.custom-dropdown-toggle {
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.custom-dropdown-toggle:hover {
+    background-color: #003d80;
+   
+}
+
+.custom-dropdown-menu {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.custom-dropdown-menu .dropdown-item {
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.custom-dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.custom-dropdown-menu .dropdown-item i {
+    margin-right: 10px;
+}
+
+.custom-dropdown-menu .dropdown-item i.fa-check-circle {
+    color: green;
+}
+
+.custom-dropdown-menu .dropdown-item i.fa-times-circle {
+    color: red;
+}
+
+.custom-dropdown-menu .dropdown-item i.fa-file-alt {
+    color: yellow;
+}
+
+
+/* status */
+
+.status {
+    display: flex;
+    align-items: center;
+}
+
+.status-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.status-text {
+    transition: color 0.3s ease;
+}
+
+.status-text.text-primary {
+    animation: pulse 1s ;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

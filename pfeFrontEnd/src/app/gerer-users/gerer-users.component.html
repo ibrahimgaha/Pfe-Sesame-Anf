@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="mb-4">
+    <input type="text" class="form-control search-bar" placeholder="Search Any User Here" [(ngModel)]="searchText" (input)="onSearch()">
+    <small><mat-hint>Search by the <b>UserName</b>, <b>FirstName</b>, or even the <b>LastName</b> </mat-hint></small>
+  </div>
+
+  
+
+
+    <h1 class="text-center mb-4">User List</h1>
+    <div class="row">
+      <div *ngFor="let user of Users" class="col-md-4 mb-4">
+        <div class="card bg-light shadow">
+          <div class="card-body">
+            <div>
+                <img [src]="user.profileImage" class="user-avatar" alt="User Image">
+
+            </div>
+            <h5 class="card-title mt-3">{{ user.userName }}</h5>
+            <div class="user-details">
+              <p><strong>First Name:</strong> {{ user.userFirstName }}</p>
+              <p><strong>Last Name:</strong> {{ user.userLastName }}</p>
+              <p><strong>Email:</strong> {{ user.email }}</p>
+              <p><strong>Address:</strong> {{ user.adresse }}</p>
+              <p><strong>Mobile:</strong> {{ user.telMobile }}</p>
+              <p *ngFor="let role of user.role"><strong>Role:</strong> &nbsp;{{ role.roleName }}</p>
+             
+            </div>
+            <div class="text-center btn-group">
+                <button class="btn btn-danger" (click)="deleteUser(user.userName)"><i class="fa-solid fa-user-slash"></i></button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="edit(user)"><i class="fa-solid fa-pen-to-square"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="fa-solid fa-user-pen" > </i>Update Client informations</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Form -->
+        <div class="modal-body">
+          <form #updateForm="ngForm" (ngSubmit)="updateUser()">
+            <div class="form-group">
+              <label for="userName">userName:</label>
+              <input type="text"  #userName [(ngModel)]="userToUpdate.userName" name="userName" id="userName"
+                class="form-control" placeholder="User Name">
+            </div>
+            <div class="form-group">
+              <label for="userFirstName">userFirstName:</label>
+              <input type="text" #userFirstName [(ngModel)]="userToUpdate.userFirstName" name="userFirstName" id="userFirstName" class="form-control"
+                placeholder="User First Name">
+            </div>
+            <div class="form-group">
+              <label for="adresse">Address :</label>
+              <input type="text" #address [(ngModel)]="userToUpdate.adresse" name="adresse" id="adresse"
+                class="form-control" placeholder="Address">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="text" #email [(ngModel)]="userToUpdate.email" name="email" id="email"
+                class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="percentage">telMobile :</label>
+              <input type="tel" #telMobile [(ngModel)]="userToUpdate.telMobile" name="telMobile" id="telMobile" class="form-control" placeholder="Tel Mobile">
+              
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="role">Role:</label>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="roleSwitch" [(ngModel)]="isAdmin" name="isAdmin">
+                <label class="form-check-label" for="roleSwitch">{{ isAdmin ? 'Admin' : 'User' }}</label>
+              </div>
+            </div> -->
+
+            <div class="form-group">
+              <input type="submit" value="Update" class="btn btn-primary w-50 mt-3" >
+            </div>
+          </form>
+        </div>
+        <!-- endForm -->
+      </div>
+     
+    </div>
+  </div>
+</div>
+  

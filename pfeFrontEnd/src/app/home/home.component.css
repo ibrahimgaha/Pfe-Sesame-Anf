@@ -1,0 +1,164 @@
+.regulation-container {
+    display: inline-block;
+    border: none; /* Remove border for cleaner look */
+    padding: 20px; /* Increased padding for content */
+    border-radius: 10px; /* Larger rounded corners */
+    margin: 10px; /* More spacing between articles */
+    transition: all 0.3s ease-in-out; /* Animation transition */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle default shadow */
+    position: relative; /* Required for some animations */
+  }
+  
+  .regulation-container:hover {
+    transform: scale(1.02); /* Slight hover zoom effect */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Enhanced hover shadow */
+  }
+  
+  /* Individual article styling */
+  .regulation-container:nth-child(1) { /* First article */
+    background-color: #ffe9ad8d; /* Light blue */
+    animation: animateIn 1s ease-in-out forwards; /* Slide-in animation */
+  }
+  
+  .regulation-container:nth-child(2) { /* Second article */
+    background-color: #f0e59b98; /* Light pink */
+    animation: animateUp 1s ease-in-out forwards; /* Upward bounce animation */
+  }
+  
+  .regulation-container:nth-child(3) { /* Third article and so on... */
+    background-color: #fcd1abbd; /* Light yellow */
+    animation: animateFade 1s ease-in-out forwards; /* Fade-in animation */
+  }
+  
+  /* Animations (replace names if desired) */
+  @keyframes animateIn {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes animateUp {
+    from { transform: translateY(20px); }
+    to { transform: translateY(0); }
+  }
+  
+  @keyframes animateFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .regulation-container p {
+    margin: 5px 0; /* Margin between paragraphs */
+    font-size: 16px; /* Maintain font size */
+    line-height: 1.5; /* Adjust line spacing for readability */
+  }
+  
+  .regulation-container p.regulation {
+    font-weight: bold;
+    color: #333; /* Darker color for regulations */
+  }
+  
+  .regulation-container p.regulation span {
+    font-weight: normal;
+    color: #999; /* Lighter color for dates */
+  }
+
+
+
+
+
+  /* General Styles (consider adjusting as needed) */
+.cool_text {
+    font-size: 20px; /* Increase heading size */
+    margin-bottom: 10px; /* Add spacing after heading */
+  }
+  
+  .lorem_dolor_text {
+    font-size: 16px; /* Adjust paragraph size */
+    line-height: 1.5; /* Improve readability */
+  }
+  
+  .image_5 {
+    text-align: center; /* Center images */
+    margin-bottom: 15px; /* Add spacing below image */
+  }
+  
+  /* Individual Section Styles */
+  .carousel-item.active .col-sm-4:nth-child(1) { /* First section */
+    animation: animateInLeft 1s ease-in-out forwards; /* Slide-in from left animation */
+  }
+  
+  .carousel-item.active .col-sm-4:nth-child(2) { /* Second section */
+    animation: animateFadeIn 1s ease-in-out forwards; /* Fade-in animation */
+  }
+  
+  .carousel-item.active .col-sm-4:nth-child(3) { /* Third section */
+    animation: animateZoomIn 1s ease-in-out forwards; /* Zoom-in animation */
+  }
+  
+  /* Animations (replace names if desired) */
+  @keyframes animateInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes animateFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes animateZoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+
+
+
+
+
+
+  
+  .accordion {
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .accordion-item {
+    background-color: #fff; /* White background for sections */
+    margin-bottom: 10px; /* Spacing between sections */
+    transition: all 0.3s ease-in-out; /* Smooth transition on hover */
+  }
+  
+  .accordion-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight hover shadow */
+  }
+  
+  .accordion-header {
+    padding: 0; /* Reset default padding */
+  }
+  
+  
+  
+  .accordion-button::after { /* Expand/collapse indicator */
+    content: "\025BC"; /* Downward arrow character (adjust for collapse state) */
+    font-size: 14px;
+    position: absolute;
+    right: 15px; /* Adjust positioning */
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg); /* Align center */
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
+  }
+  
+  .accordion-button.collapsed::after {
+    transform: translateY(-50%) rotate(180deg); /* Rotate arrow on close */
+  }
+  
+  .accordion-body {
+    padding: 15px 20px; /* Adjust padding if needed */
+    min-height: 50px; /* Set a minimum height */
+  }
+  
+    
+  
+  

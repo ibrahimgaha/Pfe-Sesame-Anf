@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col" class="bg-primary text-white">Question</th>
+          <th scope="col" class="bg-info text-white">Equipment</th>
+          <th scope="col" class="bg-success text-white">Review for Use</th>
+          <th scope="col" class="bg-warning text-dark">Responded On</th>
+          <th scope="col" class="bg-danger text-white">Response</th>
+          <th scope="col" class="bg-secondary text-white">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let avisTechnique of avisTechniques; let i = index" class="table-row">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ avisTechnique.question | slice:0:50 }}</td>
+          <td>{{ avisTechnique.nomEquipement | slice:0:50 }}</td>
+          <td>{{ avisTechnique.selectedAvisTechnique | slice:0:50 }}</td>
+          <td>{{ avisTechnique.repondu_le | date: 'yyyy-MM-dd HH:mm' }}</td>
+          <td>{{ avisTechnique.responseText | slice:0:50 }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary text-center btn-details" (click)="navigateToDetails(avisTechnique.id)">
+              <i class="fas fa-info-circle"></i> View Details
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

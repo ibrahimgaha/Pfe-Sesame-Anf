@@ -1,0 +1,95 @@
+.container {
+  margin: 20px auto;
+  max-width: 1200px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.search-field,
+.radio-container,
+.date-filter {
+  margin-bottom: 20px;
+}
+
+.radio-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.radio-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.radio-input {
+  margin-right: 20px;
+}
+
+.radio-input input {
+  margin-right: 5px;
+}
+
+.apply-filter-btn {
+  margin-top: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+}
+
+.table th {
+  background-color: #4a9bf1;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background-color: #e2e5e8;
+}
+
+.load-more-btn {
+  align-items: center;
+  margin-top: 20px;
+}
+
+.load-more-btn button {
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-btn button:hover {
+  background-color: #c82333;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

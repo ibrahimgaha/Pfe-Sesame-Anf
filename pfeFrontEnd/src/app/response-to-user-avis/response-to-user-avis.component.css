@@ -1,0 +1,228 @@
+.response-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f8f9fa; 
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    animation: slideInLeft 0.5s ease-in-out;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.info-item {
+    flex: 1 1 calc(50% - 20px); 
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.info-title {
+    font-size: 16px;
+    color: #555; 
+    margin-bottom: 8px;
+    text-transform: uppercase; 
+}
+
+.info-content {
+    font-size: 14px;
+    color: #333; 
+    margin-bottom: 16px;
+    line-height: 1.4; 
+}
+
+.info-item ul {
+    margin: 0;
+    padding: 0;
+}
+
+.info-item li {
+    margin-bottom: 5px;
+}
+
+.info-item a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease; 
+}
+
+.info-item a:hover {
+    color: #0056b3; 
+}
+
+.info-item:not(:last-child) {
+    border-right: 1px solid #ddd;
+    padding-right: 20px;
+}
+
+.response-container {
+    flex: 1 1 100%;
+}
+
+.response-title {
+    font-size: 18px;
+    color: #333;
+    margin-top: 0; 
+    margin-bottom: 10px;
+}
+
+.response-textarea {
+    width: calc(100% - 24px); 
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 10px; 
+}
+
+.response-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.response-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.file-upload-container {
+    margin-top: 10px; /* Adjust margin as needed */
+    text-align: center; /* Center the button */
+}
+
+.file-upload-label {
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.file-upload-label:hover {
+    background-color: #0056b3;
+}
+
+.selected-files-container {
+    margin-top: 20px;
+    animation: slideInUp 0.5s ease-in-out;
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.selected-files-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.selected-files-container ul li {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.download-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
+.file-name {
+    flex: 1;
+    margin: 0;
+}
+
+.remove-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+.document-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.document-item p {
+    flex: 1;
+    margin: 0;
+}
+
+.document-item button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.document-item button:hover {
+    background-color: #036f05;
+}

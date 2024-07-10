@@ -1,0 +1,75 @@
+<div class="container mt-5 mb-5">
+    <div class="row m-3">
+        <div class="col-md-5 text-center profile-section">
+            <div class="profile-image-wrapper">
+                <div class="profile-image-wrapper">
+                    
+                    <img [src]="currentUser.profileImage" alt="Profile" class="rounded-circle profile-image mb-3 "  width="150px" height="150px">
+                </div>
+            </div>
+              
+            <div class="profile-details">
+                <h2 class="profile-name">{{ currentUser.userFirstName }} {{ currentUser.userLastName }}</h2>
+                <p class="profile-address">{{ currentUser.adresse }}</p>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="form-section">
+                
+                <div class="form-group">
+                    <label  class="form-label">userName</label>
+                    <input type="text" class="form-control"  [(ngModel)]="currentUser.userName">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword6" class="form-label">userFirstName</label>
+                    <input type="text" class="form-control" [(ngModel)]="currentUser.userFirstName">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword6" class="form-label">userLastName</label>
+                    <input type="text" class="form-control" [(ngModel)]="currentUser.userLastName">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword6" class="form-label">Address</label>
+                    <input type="text" class="form-control" [(ngModel)]="currentUser.adresse">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword6" class="form-label">Email</label>
+                    <input type="email" class="form-control" [(ngModel)]="currentUser.email">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword6" class="form-label">TelFixe</label>
+                    <input type="number" class="form-control" [(ngModel)]="currentUser.telFixe">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword6" class="form-label">TelMobile</label>
+                    <input type="number" class="form-control" [(ngModel)]="currentUser.telMobile">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Profile Image</label>
+                    <input type="file" class="form-control" (change)="onFileSelected($event)">
+                  </div>
+                  <!-- Buttons to upload/update profile image -->
+                  <div class="row mt-3">
+                    <div class="col-md-12" style="text-align: right;">
+                      <button mat-raised-button class="save-btn" (click)="uploadImage()">
+                        {{ currentUser.profileImage ? 'Update Profile Image' : 'Upload Profile Image' }}
+                      </button>
+                    </div>
+                  </div>
+
+
+                <div class="row mt-3">
+
+                    <div class="col-md-12" style="text-align: right;">
+                        <button mat-raised-button  class="save-btn" (click)="update()">Update</button>
+                        <button mat-raised-button  class="clear-btn" type="reset" >Clear</button>
+                
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

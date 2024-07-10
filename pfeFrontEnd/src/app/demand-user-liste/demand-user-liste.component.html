@@ -1,0 +1,83 @@
+<div class="container mt-5" *ngIf="filteredDemands && filteredDemands.length > 0">
+  <mat-form-field appearance="fill" class="filter-field mt-3">
+    <mat-label>Filter by</mat-label>
+    <mat-select [(ngModel)]="filterOption">
+      <mat-option value="status">Status</mat-option>
+      <mat-option value="type">Type</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <div *ngIf="filterOption === 'status'">
+    <input type="text"
+           class="filter-input form-control mb-3"
+           placeholder="Search by status"
+           [(ngModel)]="searchQuery"
+           (input)="applyFilter()">
+  </div>
+  
+  <div *ngIf="filterOption === 'type'">
+    <mat-form-field appearance="fill" class="filter-field mb-3 mt-3">
+      <mat-label>Select type</mat-label>
+      <mat-select [(ngModel)]="selectedType">
+        <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button class="filter-button btn btn-primary mb-3" (click)="applyFilterByType()">Search</button>
+  </div>
+  <hr >
+
+  <h2 class="mb-4 text-center">Your Demands</h2>
+  <div *ngFor="let demand of filteredDemands" class="card shadow mb-4">
+    <!-- Your demand card content here -->
+    <div class="card-header bg-light text-dark">
+      <h5 class="card-title mb-0">Demand Type: {{ demand.typeDemande }}</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <p><strong>Request sent:</strong> {{ demand.envoyeLe }}</p>
+          <p *ngIf="demand.datePremierCompliment"><strong>Date of the First Compliment:</strong> {{ demand.datePremierCompliment }}</p>
+          <p *ngIf="demand.dateDeuxiemeCompliment"><strong>Date of the Second Compliment:</strong> {{ demand.dateDeuxiemeCompliment }}</p>
+          <p><strong>The Status of your Demand :</strong> 
+            <span [ngClass]="{'text-primary': demand.status === 'onGoing', 'text-success': demand.status === 'validated','text-danger': demand.status === 'notValidated','text-info':demand.status === 'complementExpectation'}">{{ demand.status }}</span>
+          <mat-progress-bar *ngIf="demand.status === 'onGoing'" mode="buffer" value="40" class="mt-2 progress-bar-green"></mat-progress-bar>
+          </p>
+          <div class="text-center"> <!-- Align button in the center -->
+            <button *ngIf="demand.status==='complementExpectation'" mat-raised-button class="add-complements-button" (click)="openFileUploadModal(demand.id)">
+              <span>Add The Complements From Here</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h5>Equipments:</h5>
+          <ul class="list-group">
+            <li class="list-group-item border-0" *ngFor="let equipement of demand.equipement">
+              <p><strong>Model:</strong> {{ equipement.modele }}</p>
+              <p><strong>Mark:</strong> {{ equipement.marque }}</p>
+              <p><strong>Type:</strong> {{ equipement.type }}</p>
+
+              <p><strong>Quantity:</strong> {{ equipement.quantite }}</p>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Files:</h5>
+          <div class="row">
+            <ng-container *ngFor="let chunk of demand.documents | chunk: 3">
+              <div class="col-md-4 mt-1" *ngFor="let file of chunk">
+                <div class="card" *ngIf="file.filePath">
+                  <div class="card-body">
+                    <p class="card-text text-truncate">{{ file.nom_Document }}</p>
+                    <button class="btn btn-success btn-sm" (click)="downloadFile(file.nom_Document)">
+                      <i class="fas fa-download"></i> Download
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,125 @@
+<!-- <mat-toolbar color="primary" class="main-toolbar">
+  <a routerLink="/" class="logo-link">
+    <img src="../../assets/anfLogo.jpg" alt="ANF Logo" class="logo">
+  </a>
+  <span class="toolbar-title">Bureau ANF_GU CERT</span>
+  <span class="spacer"></span>
+  <div class="toolbar-buttons">
+    <ng-container *ngIf="!isLoggedIn(); else loggedIn">
+      <button mat-raised-button class="login-button" routerLink="/login">Login</button>
+    </ng-container>
+    <ng-template #loggedIn>
+      <button mat-raised-button color="warn" class="logout-button" (click)="logout()">Logout</button>
+    </ng-template>
+  </div>
+</mat-toolbar>
+
+<mat-toolbar color="primary" *ngIf="isLoggedIn()" class="secondary-toolbar">
+  <div class="toolbar-buttons">
+    <button mat-raised-button color="primary" routerLink="/home">Home</button>
+    <button mat-raised-button color="primary" *ngIf="isAdmin()" routerLink="/admin-dashboard">Admin Dashboard</button>
+    
+    <div class="dropdown" *ngIf="isUser()">
+      <a class="btn drop-bg dropdown-toggle" mat-raised-button color="primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Technical Advice
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" routerLink="/avis-technique-user">Request a Technical Advice</a></li>
+        <li><a class="dropdown-item" routerLink="/lister-avis-technique-user">List my Technical Reviews</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown" *ngIf="isUser()">
+      <a class="btn drop-bg dropdown-toggle" mat-raised-button color="primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Demands
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" routerLink="/creer-tous-demandes">Request a new Demand</a></li>
+        <li><a class="dropdown-item" routerLink="/demande-lister-user">List my Demands</a></li>
+      </ul>
+    </div>
+    <span class="spacer"></span>
+
+    <button mat-fab color="primary" routerLink="/viewProfile" class="profile-button">
+      <div class="profile-image-wrapper">
+        <img [src]="currentUser.profileImage" alt="Profile" class="rounded-circle profile-image mb-3">
+      </div>
+    </button>
+  </div>
+</mat-toolbar> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-gradient-light shadow fixed-top" style="height: 50px;">
+  <div class="container-fluid d-flex align-items-center">
+    <a class="navbar-brand ms-2 fw-bold fs-4" routerLink="/home">
+      <img src="../../assets/anfLogo.jpg" alt="ANF Logo" class="logo" style="width: 50px; height: 50px;">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex">
+        <li class="nav-item mx-2">
+          <a class="nav-link animate__animated animate__fadeInUp hover:text-primary" aria-current="page" routerLink="/home">
+            <i class="fas fa-home-alt"></i> Home
+          </a>
+        </li>
+
+        <li class="nav-item mx-2" *ngIf="isAdmin()" >
+          <a class="nav-link animate__animated animate__fadeInUp hover:text-primary" aria-current="page" routerLink="/admin-dashboard">
+            <i class="fa-solid fa-gauge-high"></i> Dashboard
+          </a>
+        </li>
+
+        <li class="nav-item mx-2 dropdown" *ngIf="isLoggedIn()">
+          <a class="nav-link dropdown-toggle animate__animated animate__fadeInUp hover:text-primary" href="#" id="demandDropdown"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-bell"></i> Demand
+          </a>
+          <ul class="dropdown-menu shadow rounded-3 bg-light border border-primary animate__animated animate__fadeInUp"
+               aria-labelledby="demandDropdown">
+            <li><a class="dropdown-item" routerLink="/creer-tous-demandes">Request a new Demand</a></li>
+            <li><a class="dropdown-item" routerLink="/demande-lister-user">List my Demands</a></li>
+          </ul>
+        </li>
+        <li class="nav-item mx-2 dropdown" *ngIf="isLoggedIn()">
+          <a class="nav-link dropdown-toggle animate__animated animate__fadeInUp hover:text-primary" href="#" id="technicalAdviceDropdown"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-comment-dots"></i> Technical Advice
+          </a>
+          <ul class="dropdown-menu shadow rounded-3 bg-light border border-primary animate__animated animate__fadeInUp"
+               aria-labelledby="technicalAdviceDropdown">
+            <li><a class="dropdown-item" routerLink="/avis-technique-user">Request a Technical Advice</a></li>
+            <li><a class="dropdown-item" routerLink="/lister-avis-technique-user">List my Technical Reviews</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center ms-auto">
+        <button mat-icon-button color="primary" routerLink="/viewProfile" class="profile-button mx-1 m-2" style="width: 50px; height: 50px;" *ngIf="isLoggedIn()">
+          <img [src]="currentUser.profileImage" class="rounded-circle profile-image mb-3">
+        </button>
+        <ng-container *ngIf="!isLoggedIn(); else loggedIn">
+          <button class="btn btn-outline-primary rounded-pill px-3 animate__animated animate__fadeIn" type="button"
+                  routerLink="/login">
+            Login
+          </button>
+        </ng-container>
+        <ng-template #loggedIn>
+          <button class="btn btn-outline-danger rounded-pill px-3" type="button" (click)="logout()" 
+                  style="background-color: #fd3838; border-color: #fd3838; color: white; font-weight: bold;">
+            <i class="fas fa-power-off"></i> LogOut
+          </button>
+        </ng-template>
+        
+      </div>
+    </div>
+  </div>
+  <div class="underline"></div>
+</nav>
+
+
+
+
+
+

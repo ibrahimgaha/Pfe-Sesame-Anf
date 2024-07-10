@@ -1,0 +1,18 @@
+
+
+/* Additional styling for a modern, organized look */
+.stats-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to next line if needed */
+  margin: 20px;
+  justify-content: space-between; /* Distribute cards evenly */
+}
+
+.stat-card {
+  width: 32%; /* Adjust width as needed for a grid layout */
+  margin: 10px;
+}
+
+.centered {
+  align-self: center; /* Center the larger card horizontally */
+}

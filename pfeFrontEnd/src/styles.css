@@ -1,0 +1,22 @@
+
+*{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+body{
+  background-color: #eff2f5 !important;
+  
+  
+}
+
+.min-height-80{
+  min-height: 80px;
+}
+
+.border-right{
+  border-right: solid #c7c7c7 1px;
+}
+
+.custom-border{
+  border: solid #c7c7c7  1px;
+  border-radius: 5px;
+}

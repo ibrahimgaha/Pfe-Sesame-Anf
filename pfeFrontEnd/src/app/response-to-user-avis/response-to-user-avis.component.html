@@ -1,0 +1,60 @@
+<div *ngIf="avisDetails" class="response-container">
+    <div class="info-container">
+        <div class="info-item">
+            <h2 class="info-title">Question:</h2>
+            <p class="info-content">{{ avisDetails.question }}</p>
+        </div>
+  
+        <div class="info-item">
+            <h2 class="info-title">Equipement:</h2>
+            <p class="info-content">{{ avisDetails.nomEquipement }}</p>
+        </div>
+  
+        <div class="info-item">
+            <h2 class="info-title"> Question type  :</h2>
+            <p class="info-content">{{ avisDetails.selectedAvisTechnique }}</p>
+        </div>
+  
+        <div class="info-item">
+            <h2 class="info-title">Documents:</h2>
+            <ul>
+                <li *ngFor="let document of avisDetails.avisDocument" class="document-item">
+                    <!-- Add download button for each file -->
+                    <p >{{ document.nom_Document }}</p>
+                    <button class="btn-danger" (click)="downloadFile(document.nom_Document)"><i class="fa-solid fa-download"></i>   </button>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+  
+    <div class="response-container mt-3 text-center">
+        <h2 class="response-title">Provide Response:</h2>
+        <textarea class="response-textarea" [(ngModel)]="response"></textarea>
+        <button class="response-button" (click)="submitResponse()">Send your Technical Advice</button>
+  
+        <!-- File Upload Container -->
+        <div class="file-upload-container">
+            <label class="file-upload-label" for="fileInput">
+                Upload Document(s)
+                <input id="fileInput" type="file" (change)="handleFileUpload($event)" multiple style="display: none;">
+            </label>
+            <small class="form-text text-danger">* Required</small>
+
+        </div>
+        <!-- End of File Upload Container -->
+  
+        <!-- Display selected file names -->
+        <div class="selected-files-container">
+            <ul class="selected-files-list">
+                <li *ngFor="let file of selectedFiles" class="file-item">{{ file.file.name }}
+                    <button type="button" class="remove-btn btn btn-sm btn-danger ml-2" (click)="removeFile(document)">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+  </div>
+  

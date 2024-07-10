@@ -1,0 +1,196 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+.logo-link {
+  margin-right: 16px;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 20%;
+}
+
+.toolbar-title {
+  flex-grow: 1;
+  font-size: 20px;
+  color: #fff; /* White color */
+  font-weight: bold;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.toolbar-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.login-button,
+.logout-button {
+  margin-left: 16px;
+}
+
+.login-button {
+  background-color: #fff; /* White color */
+  color: #2196f3; /* Primary color */
+}
+
+.login-button:hover {
+  background-color: #f0f0f0; /* Light gray */
+}
+
+.logout-button {
+  background-color: #f44336; /* Warn color */
+  color: #fff; /* White color */
+}
+
+.logout-button:hover {
+  background-color: #d32f2f; /* Darker red */
+}
+
+
+
+.secondary-toolbar {
+  background: linear-gradient(to right, #3a8de0, #0e68c8, #16569b); /* Gradient background */
+}
+
+.main-toolbar {
+  background: linear-gradient(to right, #2196f3, #1976d2); /* Gradient background */
+  display: flex;
+  align-items: center;
+}
+.secondary-toolbar .toolbar-buttons button {
+  margin-right: 8px;
+}
+
+.secondary-toolbar .toolbar-buttons button:last-child {
+  margin-right: 0;
+}
+
+.secondary-toolbar button {
+  background-color: #fff; /* White color */
+  color: #1976d2; /* Darker shade of primary color */
+}
+
+.secondary-toolbar button:hover {
+  background-color: #f0f0f0; /* Light gray */
+}
+
+.drop-bg {
+  background-color: white;
+  color: #4a88c6;
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  /* Adjust dropdown width as needed */
+  width: 230px;
+  background-color: #f8f9fa; /* Light background color */
+  border: none; /* Remove default border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  /* Animations */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1; /* Show dropdown on hover */
+}
+
+.dropdown-item {
+  padding: 10px 15px; /* Adjust padding for spacing */
+  color: #333; /* Text color */
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown-item:hover {
+  background-color: #f4f4f4; /* Light hover background */
+  cursor: pointer; /* Change cursor to indicate interactivity */
+}
+
+
+.profile-button {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background-color: #eeeeee; /* Blue background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 50%; /* Make it a circle */
+  width: 56px; /* Set width */
+  height: 56px; /* Set height */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s ease; /* Add smooth transition */
+}
+
+.profile-button:hover {
+  background-color: #9fc8f4; /* Darker blue on hover */
+}
+
+.button-content {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center content vertically */
+}
+
+.profile-image {
+  width: 40px; /* Adjust image width */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 15px;
+}
+
+/* General Styles */
+.navbar-brand {
+  color: #007bff; /* Adjust brand color as needed */
+}
+
+.nav-link {
+  color: #333; /* Adjust link color as needed */
+  font-weight: 500;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #007bff; /* Adjust accent color */
+}
+
+.profile-button mat-icon {
+  font-size: 3rem; /* Adjust icon size */
+}
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    overflow-y: auto;
+    max-height: 300px; /* Adjust max-height as needed */
+  }
+  .nav-item {
+    margin-bottom: 10px;
+  }
+}
+.animate__animated {
+  -webkit-animation-duration: 0.3s; /* Adjust animation duration as needed */
+  animation-duration: 0.3s;
+}
+
+.animate__fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Move element back to its original position */
+  }
+}
+
+
